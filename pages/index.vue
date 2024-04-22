@@ -99,7 +99,11 @@
 
     <div v-else>
       <!-- Random Gif -->
-      <img :src="randomWoof.data?.url" alt="randomWoof" class="image" />
+      <img
+        :src="randomWoof.data?.url"
+        alt="Random Dog could not be resolved :("
+        class="image"
+      />
       <p>Kein Mensaangebot am Wochenende</p>
     </div>
   </div>
