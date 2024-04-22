@@ -1,110 +1,112 @@
 <template>
-  <div>
-    <h1>{{ dateFormat }} {{ weekDayName }}</h1>
-    <div v-if="isWeekend == false">
-      <h1>Mensa</h1>
-      <div class="container">
-        <div class="card" v-if="simplyGood">
-          <h2>
-            Simply Good,
-            {{ simplyGood.data.pageProps.recipe?.prices[0].amount }} CHF
-          </h2>
-          <p>
-            Vegetarian: {{ simplyGood.data.pageProps.recipe?.isVegetarian }}
-            <br />
-            Vegan: {{ simplyGood.data.pageProps.recipe?.isVegan }}
-          </p>
-          <img
-            :src="simplyGood.data.pageProps.recipe?.imageUrl"
-            alt="Git leider keis bildli ;)"
-            class="image"
-          />
-          <p>{{ simplyGood.data.pageProps.recipe?.title }}</p>
+  <div class="parent">
+    <div class="child">
+      <p>{{ dateFormat }} {{ weekDayName }}</p>
+      <div v-if="isWeekend == false">
+        <div class="container">
+          <h1>Mensa</h1>
+          <div class="card" v-if="simplyGood">
+            <h2>
+              Simply Good,
+              {{ simplyGood.data.pageProps.recipe?.prices[0].amount }} CHF
+            </h2>
+            <p>
+              Vegetarian: {{ simplyGood.data.pageProps.recipe?.isVegetarian }}
+              <br />
+              Vegan: {{ simplyGood.data.pageProps.recipe?.isVegan }}
+            </p>
+            <img
+              :src="simplyGood.data.pageProps.recipe?.imageUrl"
+              alt="Git leider keis bildli ;)"
+              class="image"
+            />
+            <p>{{ simplyGood.data.pageProps.recipe?.title }}</p>
+          </div>
+
+          <div class="card" v-if="daily">
+            <h2>
+              Daily, {{ daily.data.pageProps.recipe?.prices[0].amount }} CHF
+            </h2>
+
+            <p>
+              Vegetarian: {{ daily.data.pageProps.recipe?.isVegetarian }}
+              <br />
+              Vegan: {{ daily.data.pageProps.recipe?.isVegan }}
+            </p>
+            <img
+              :src="daily.data.pageProps.recipe?.imageUrl"
+              alt="Git leider keis bildli ;)"
+              class="image"
+            />
+            <p>{{ daily.data.pageProps.recipe?.title }}</p>
+          </div>
+
+          <div class="card" v-if="exquisit">
+            <h2>
+              Exquisit,
+              {{ exquisit.data.pageProps.recipe?.prices[0].amount }} CHF
+            </h2>
+
+            <p>
+              Vegetarian: {{ exquisit.data.pageProps.recipe?.isVegetarian }}
+              <br />
+              Vegan: {{ exquisit.data.pageProps.recipe?.isVegan }}
+            </p>
+            <img
+              :src="exquisit.data.pageProps.recipe?.imageUrl"
+              alt="Git leider keis bildli ;)"
+              class="image"
+            />
+            <p>{{ exquisit.data.pageProps.recipe?.title }}</p>
+          </div>
         </div>
 
-        <div class="card" v-if="daily">
-          <h2>
-            Daily, {{ daily.data.pageProps.recipe?.prices[0].amount }} CHF
-          </h2>
-
-          <p>
-            Vegetarian: {{ daily.data.pageProps.recipe?.isVegetarian }}
-            <br />
-            Vegan: {{ daily.data.pageProps.recipe?.isVegan }}
-          </p>
-          <img
-            :src="daily.data.pageProps.recipe?.imageUrl"
-            alt="Git leider keis bildli ;)"
-            class="image"
-          />
-          <p>{{ daily.data.pageProps.recipe?.title }}</p>
-        </div>
-
-        <div class="card" v-if="exquisit">
-          <h2>
-            Exquisit,
-            {{ exquisit.data.pageProps.recipe?.prices[0].amount }} CHF
-          </h2>
-
-          <p>
-            Vegetarian: {{ exquisit.data.pageProps.recipe?.isVegetarian }}
-            <br />
-            Vegan: {{ exquisit.data.pageProps.recipe?.isVegan }}
-          </p>
-          <img
-            :src="exquisit.data.pageProps.recipe?.imageUrl"
-            alt="Git leider keis bildli ;)"
-            class="image"
-          />
-          <p>{{ exquisit.data.pageProps.recipe?.title }}</p>
+        <div class="container">
+          <h1>Chez</h1>
+          <div class="card" v-if="toni1">
+            <h2>
+              Toni 1, {{ toni1.data.pageProps.recipe?.prices[0].amount }} CHF
+            </h2>
+            <p>
+              Vegetarian: {{ toni1.data.pageProps.recipe?.isVegetarian }}
+              <br />
+              Vegan: {{ toni1.data.pageProps.recipe?.isVegan }}
+            </p>
+            <img
+              :src="toni1.data.pageProps.recipe?.imageUrl"
+              alt="Git leider keis bildli ;)"
+              class="image"
+            />
+            <p>{{ toni1.data.pageProps.recipe?.title }}</p>
+          </div>
+          <div class="card" v-if="toni2">
+            <h2>
+              Toni 2, {{ toni2.data.pageProps.recipe?.prices[0].amount }} CHF
+            </h2>
+            <p>
+              Vegetarian: {{ toni2.data.pageProps.recipe?.isVegetarian }}
+              <br />
+              Vegan: {{ toni2.data.pageProps.recipe?.isVegan }}
+            </p>
+            <img
+              :src="toni2.data.pageProps.recipe?.imageUrl"
+              alt="Git leider keis bildli ;)"
+              class="image"
+            />
+            <p>{{ toni2.data.pageProps.recipe?.title }}</p>
+          </div>
         </div>
       </div>
 
-      <h1>Chez</h1>
-      <div class="container">
-        <div class="card" v-if="toni1">
-          <h2>
-            Toni 1, {{ toni1.data.pageProps.recipe?.prices[0].amount }} CHF
-          </h2>
-          <p>
-            Vegetarian: {{ toni1.data.pageProps.recipe?.isVegetarian }}
-            <br />
-            Vegan: {{ toni1.data.pageProps.recipe?.isVegan }}
-          </p>
-          <img
-            :src="toni1.data.pageProps.recipe?.imageUrl"
-            alt="Git leider keis bildli ;)"
-            class="image"
-          />
-          <p>{{ toni1.data.pageProps.recipe?.title }}</p>
-        </div>
-        <div class="card" v-if="toni2">
-          <h2>
-            Toni 2, {{ toni2.data.pageProps.recipe?.prices[0].amount }} CHF
-          </h2>
-          <p>
-            Vegetarian: {{ toni2.data.pageProps.recipe?.isVegetarian }}
-            <br />
-            Vegan: {{ toni2.data.pageProps.recipe?.isVegan }}
-          </p>
-          <img
-            :src="toni2.data.pageProps.recipe?.imageUrl"
-            alt="Git leider keis bildli ;)"
-            class="image"
-          />
-          <p>{{ toni2.data.pageProps.recipe?.title }}</p>
-        </div>
+      <div v-else>
+        <!-- Random Gif -->
+        <img
+          :src="randomWoof.data?.url"
+          alt="Random Dog could not be resolved :("
+          class="image"
+        />
+        <p>Kein Mensaangebot am Wochenende</p>
       </div>
-    </div>
-
-    <div v-else>
-      <!-- Random Gif -->
-      <img
-        :src="randomWoof.data?.url"
-        alt="Random Dog could not be resolved :("
-        class="image"
-      />
-      <p>Kein Mensaangebot am Wochenende</p>
     </div>
   </div>
 </template>
@@ -156,6 +158,27 @@ randomWoof.value = await useFetch(" https://random.dog/woof.json");
   font-family: Arial, sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
+
+.parent {
+  display: flex;
+  position: absolute;
+  inset: 0;
+}
+
+.child {
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: rgb(255, 253, 245);
+  overflow-y: scroll;
+}
+
 .image {
   width: 300px;
   height: auto;
@@ -166,14 +189,16 @@ randomWoof.value = await useFetch(" https://random.dog/woof.json");
   margin: 20px;
   padding: 20px;
   width: 300px;
+  background-color: white;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .allergenes {
