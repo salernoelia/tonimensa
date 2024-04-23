@@ -3,26 +3,8 @@
     <div class="child">
       <p>{{ dateFormat }} {{ weekDayName }}</p>
       <div v-if="isWeekend == false">
+        <h1 class="title">Mensa</h1>
         <div class="container">
-          <h1>Mensa</h1>
-          <div class="card" v-if="simplyGood">
-            <h2>
-              Simply Good,
-              {{ simplyGood.data.pageProps.recipe?.prices[0].amount }} CHF
-            </h2>
-            <p>
-              Vegetarian: {{ simplyGood.data.pageProps.recipe?.isVegetarian }}
-              <br />
-              Vegan: {{ simplyGood.data.pageProps.recipe?.isVegan }}
-            </p>
-            <img
-              :src="simplyGood.data.pageProps.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
-              class="image"
-            />
-            <p>{{ simplyGood.data.pageProps.recipe?.title }}</p>
-          </div>
-
           <div class="card" v-if="daily">
             <h2>
               Daily, {{ daily.data.pageProps.recipe?.prices[0].amount }} CHF
@@ -38,7 +20,25 @@
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <p>{{ daily.data.pageProps.recipe?.title }}</p>
+            <h3>{{ daily.data.pageProps.recipe?.title }}</h3>
+          </div>
+
+          <div class="card" v-if="simplyGood">
+            <h2>
+              Simply Good,
+              {{ simplyGood.data.pageProps.recipe?.prices[0].amount }} CHF
+            </h2>
+            <p>
+              Vegetarian: {{ simplyGood.data.pageProps.recipe?.isVegetarian }}
+              <br />
+              Vegan: {{ simplyGood.data.pageProps.recipe?.isVegan }}
+            </p>
+            <img
+              :src="simplyGood.data.pageProps.recipe?.imageUrl"
+              alt="Git leider keis bildli ;)"
+              class="image"
+            />
+            <h3>{{ simplyGood.data.pageProps.recipe?.title }}</h3>
           </div>
 
           <div class="card" v-if="exquisit">
@@ -57,12 +57,12 @@
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <p>{{ exquisit.data.pageProps.recipe?.title }}</p>
+            <h3>{{ exquisit.data.pageProps.recipe?.title }}</h3>
           </div>
         </div>
 
+        <h1 class="title">Chez</h1>
         <div class="container">
-          <h1>Chez</h1>
           <div class="card" v-if="toni1">
             <h2>
               Toni 1, {{ toni1.data.pageProps.recipe?.prices[0].amount }} CHF
@@ -77,7 +77,7 @@
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <p>{{ toni1.data.pageProps.recipe?.title }}</p>
+            <h3>{{ toni1.data.pageProps.recipe?.title }}</h3>
           </div>
           <div class="card" v-if="toni2">
             <h2>
@@ -93,7 +93,7 @@
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <p>{{ toni2.data.pageProps.recipe?.title }}</p>
+            <h3>{{ toni2.data.pageProps.recipe?.title }}</h3>
           </div>
         </div>
       </div>
@@ -155,7 +155,11 @@ randomWoof.value = await useFetch(" https://random.dog/woof.json");
 
 <style scoped>
 * {
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin: 10px;
 }
 
 body {
@@ -172,23 +176,26 @@ body {
   display: flex;
   flex-direction: column;
   color: rgb(0, 0, 0);
-  width: 100%;
-  height: 100%;
   padding: 20px;
   background-color: rgb(255, 253, 245);
   overflow-y: scroll;
+  width: 100%;
 }
 
 .image {
   width: 300px;
   height: auto;
+
   margin-bottom: 10px;
 }
 
 .card {
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 20px;
   width: 300px;
+
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -196,9 +203,10 @@ body {
 
 .container {
   display: flex;
-  align-items: center;
+  align-items: start;
+  gap: 20px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
 }
 
 .allergenes {
