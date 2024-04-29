@@ -1,7 +1,23 @@
 <template>
   <div class="parent">
+    <div></div>
     <div class="child">
-      <p>{{ dateFormat }} {{ weekDayName }}</p>
+      <div class="title">
+        <p>{{ dateFormat }} {{ weekDayName }}</p>
+        <button @click="toggler = !toggler">
+          Open the Menus in fullscreen.
+        </button>
+      </div>
+
+      <FsLightbox
+        :toggler="toggler"
+        :sources="[
+          daily.data.pageProps.recipe?.imageUrl,
+          simplyGood.data.pageProps.recipe?.imageUrl,
+          exquisit.data.pageProps.recipe?.imageUrl,
+        ]"
+      />
+
       <div v-if="isWeekend == false">
         <h1 class="title">Mensa</h1>
         <div class="container">
@@ -112,6 +128,10 @@
 </template>
 
 <script setup>
+import FsLightbox from "fslightbox-vue/v3";
+
+const toggler = ref(false);
+
 const date = new Date();
 const dateFormat = date.toISOString().split("T")[0];
 
