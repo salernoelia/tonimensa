@@ -153,13 +153,29 @@ let randomWoof = ref(null);
 randomWoof.value = await useFetch(" https://random.dog/woof.json");
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 * {
   font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
 
 h1 {
-  margin: 10px;
+  font-weight: 200;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+p {
+  font-weight: 300;
 }
 
 body {
@@ -177,7 +193,6 @@ body {
   flex-direction: column;
   color: rgb(0, 0, 0);
   padding: 20px;
-  background-color: rgb(255, 253, 245);
   overflow-y: scroll;
   width: 100%;
 }
@@ -192,13 +207,20 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 20px;
-  width: 300px;
+  width: 350px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
 
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 5px 5px 1px 0 rgba(0, 0, 0, 5);
+  }
 }
 
 .container {
