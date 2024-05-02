@@ -181,7 +181,6 @@ randomWoof.value = await useFetch(" https://random.dog/woof.json");
 
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-
 * {
   font-family: "Lato", sans-serif;
   font-weight: 100;
@@ -189,7 +188,7 @@ randomWoof.value = await useFetch(" https://random.dog/woof.json");
 }
 
 h1 {
-  font-weight: 100;
+  font-weight: 200;
 }
 
 h2 {
@@ -233,12 +232,21 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 100%;
   padding: 20px;
   width: 350px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 5px 5px 1px 0 rgba(0, 0, 0, 5);
+  }
   transition: all 0.3s ease;
 
   &:hover {
