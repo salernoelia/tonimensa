@@ -4,19 +4,9 @@
     <div class="child">
       <div class="title">
         <p>{{ dateFormat }} {{ weekDayName }}</p>
-        <button @click="toggler = !toggler">
-          Open the Menus in fullscreen.
-        </button>
       </div>
 
-      <FsLightbox
-        :toggler="toggler"
-        :sources="[
-          daily.data.pageProps.recipe?.imageUrl,
-          simplyGood.data.pageProps.recipe?.imageUrl,
-          exquisit.data.pageProps.recipe?.imageUrl,
-        ]"
-      />
+      <FsLightbox :toggler="toggler" :sources="source" />
 
       <div v-if="isWeekend == false">
         <h1 class="title">Mensa</h1>
@@ -32,9 +22,12 @@
               Vegan: {{ daily.data.pageProps.recipe?.isVegan }}
             </p>
             <img
-              :src="daily.data.pageProps.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
+              :src="'daily.data.pageProps.recipe?.imageUrl'"
+              alt="Keis Bild :) keis bildli ;)"
               class="image"
+              @click="source = ['daily.data.pageProps.recipe?.imageUrl']"
+              ;
+              toggler="!toggler"
             />
             <h3>{{ daily.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -51,8 +44,11 @@
             </p>
             <img
               :src="simplyGood.data.pageProps.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
+              alt="Keis Bild :) keis bildli ;)"
               class="image"
+              @click="source = [simplyGood.data.pageProps.recipe?.imageUrl]"
+              ;
+              toggler="!toggler"
             />
             <h3>{{ simplyGood.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -70,8 +66,11 @@
             </p>
             <img
               :src="exquisit.data.pageProps.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
+              alt="Keis Bild :) keis bildli ;)"
               class="image"
+              @click="source = [exquisit.data.pageProps.recipe?.imageUrl]"
+              ;
+              toggler="!toggler"
             />
             <h3>{{ exquisit.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -90,8 +89,11 @@
             </p>
             <img
               :src="toni1.data.pageProps.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
+              alt="Keis Bild :) keis bildli ;)"
               class="image"
+              @click="source = [toni1.data.pageProps.recipe?.imageUrl]"
+              ;
+              toggler="!toggler"
             />
             <h3>{{ toni1.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -106,8 +108,11 @@
             </p>
             <img
               :src="toni2.data.pageProps.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
+              alt="Keis Bild :) keis bildli ;)"
               class="image"
+              @click="source = [toni2.data.pageProps.recipe?.imageUrl]"
+              ;
+              toggler="!toggler"
             />
             <h3>{{ toni2.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -131,6 +136,7 @@
 import FsLightbox from "fslightbox-vue/v3";
 
 const toggler = ref(false);
+const source = ref < String > "";
 
 const date = new Date();
 const dateFormat = date.toISOString().split("T")[0];
