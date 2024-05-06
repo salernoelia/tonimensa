@@ -219,7 +219,7 @@ body {
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 5px 5px 1px 0 rgba(0, 0, 0, 5);
+    box-shadow: 5px 5px 1px 0 rgba(0, 0, 0, 2);
   }
 }
 
