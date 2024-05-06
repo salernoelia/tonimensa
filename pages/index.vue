@@ -1,13 +1,7 @@
 <template>
   <div class="parent">
-    <div></div>
     <div class="child">
-      <div class="title">
-        <p>{{ dateFormat }} {{ weekDayName }}</p>
-      </div>
-
-      <FsLightbox :toggler="toggler" :sources="source" />
-
+      <p>{{ dateFormat }} {{ weekDayName }}</p>
       <div v-if="isWeekend == false">
         <h1 class="title">Mensa</h1>
         <div class="container">
@@ -22,12 +16,9 @@
               Vegan: {{ daily.data.pageProps.recipe?.isVegan }}
             </p>
             <img
-              :src="'daily.data.pageProps.recipe?.imageUrl'"
-              alt="Keis Bild :) keis bildli ;)"
+              :src="daily.data.pageProps.recipe?.imageUrl"
+              alt="Git leider keis bildli ;)"
               class="image"
-              @click="source = ['daily.data.pageProps.recipe?.imageUrl']"
-              ;
-              toggler="!toggler"
             />
             <h3>{{ daily.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -44,11 +35,8 @@
             </p>
             <img
               :src="simplyGood.data.pageProps.recipe?.imageUrl"
-              alt="Keis Bild :) keis bildli ;)"
+              alt="Git leider keis bildli ;)"
               class="image"
-              @click="source = [simplyGood.data.pageProps.recipe?.imageUrl]"
-              ;
-              toggler="!toggler"
             />
             <h3>{{ simplyGood.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -66,11 +54,8 @@
             </p>
             <img
               :src="exquisit.data.pageProps.recipe?.imageUrl"
-              alt="Keis Bild :) keis bildli ;)"
+              alt="Git leider keis bildli ;)"
               class="image"
-              @click="source = [exquisit.data.pageProps.recipe?.imageUrl]"
-              ;
-              toggler="!toggler"
             />
             <h3>{{ exquisit.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -89,11 +74,8 @@
             </p>
             <img
               :src="toni1.data.pageProps.recipe?.imageUrl"
-              alt="Keis Bild :) keis bildli ;)"
+              alt="Git leider keis bildli ;)"
               class="image"
-              @click="source = [toni1.data.pageProps.recipe?.imageUrl]"
-              ;
-              toggler="!toggler"
             />
             <h3>{{ toni1.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -108,11 +90,8 @@
             </p>
             <img
               :src="toni2.data.pageProps.recipe?.imageUrl"
-              alt="Keis Bild :) keis bildli ;)"
+              alt="Git leider keis bildli ;)"
               class="image"
-              @click="source = [toni2.data.pageProps.recipe?.imageUrl]"
-              ;
-              toggler="!toggler"
             />
             <h3>{{ toni2.data.pageProps.recipe?.title }}</h3>
           </div>
@@ -133,11 +112,6 @@
 </template>
 
 <script setup>
-import FsLightbox from "fslightbox-vue/v3";
-
-const toggler = ref(false);
-const source = ref < String > "";
-
 const date = new Date();
 const dateFormat = date.toISOString().split("T")[0];
 
@@ -182,13 +156,14 @@ randomWoof.value = await useFetch(" https://random.dog/woof.json");
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 * {
+  font-family: Arial, Helvetica, sans-serif;
   font-family: "Lato", sans-serif;
   font-weight: 100;
   font-style: normal;
 }
 
 h1 {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 h2 {
@@ -244,7 +219,7 @@ body {
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 5px 5px 1px 0 rgba(0, 0, 0, 5);
+    box-shadow: 5px 5px 1px 0 rgba(0, 0, 0, 2);
   }
 }
 
@@ -253,7 +228,6 @@ body {
   align-items: start;
   gap: 20px;
   flex-wrap: wrap;
-  width: 100%;
   justify-content: start;
 }
 
