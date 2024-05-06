@@ -232,7 +232,6 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 20px;
   width: 350px;
   height: 400px;
@@ -242,11 +241,6 @@ body {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 20px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 5px 5px 1px 0 rgba(0, 0, 0, 5);
-  }
   transition: all 0.3s ease;
 
   &:hover {
