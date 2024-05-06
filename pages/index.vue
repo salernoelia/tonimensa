@@ -209,9 +209,9 @@ body {
   flex-direction: column;
   padding: 20px;
   width: 350px;
-  height: 400px;
-  justify-content: center;
-  align-items: center;
+  max-height: 450px;
+  justify-content: start;
+  align-items: start;
 
   background-color: white;
   border: 1px solid #ccc;
