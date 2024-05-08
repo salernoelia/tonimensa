@@ -2,7 +2,7 @@
   <div class="parent">
     <div class="child">
       <p>{{ dateFormat }} {{ weekDayName }}</p>
-      <div v-if="isWeekend == false">
+      <div v-if="isWeekend == false && daily.data">
         <h1 class="title">Mensa</h1>
         <div class="container">
           <div class="card" v-if="daily">
