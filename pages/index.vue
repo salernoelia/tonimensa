@@ -130,22 +130,22 @@ let toni1 = ref(null);
 let toni2 = ref(null);
 
 simplyGood.value = await useFetch(
-  `https://app.food2050.ch/_next/data/0ZbjvT3bFOuCPDTE2D-jm/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-simply-good.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-simply-good`
+  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-simply-good.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-simply-good`
 );
 
 daily.value = await useFetch(
-  `https://app.food2050.ch/_next/data/0ZbjvT3bFOuCPDTE2D-jm/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-daily.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-daily`
+  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-daily.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-daily`
 );
 
 exquisit.value = await useFetch(
-  `https://app.food2050.ch/_next/data/0ZbjvT3bFOuCPDTE2D-jm/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-exquisit.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-exquisit`
+  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-exquisit.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-exquisit`
 );
 
 toni1.value = await useFetch(
-  `https://app.food2050.ch/_next/data/0ZbjvT3bFOuCPDTE2D-jm/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-1.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-1`
+  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-1.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-1`
 );
 toni2.value = await useFetch(
-  `https://app.food2050.ch/_next/data/0ZbjvT3bFOuCPDTE2D-jm/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-2.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-2`
+  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-2.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-2`
 );
 
 let randomWoof = ref(null);
