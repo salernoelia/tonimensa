@@ -2,98 +2,48 @@
   <div class="parent">
     <div class="child">
       <p>{{ dateFormat }} {{ weekDayName }}</p>
-      <div v-if="isWeekend == false">
+      <div v-if="!isWeekend">
         <h1 class="title">Mensa</h1>
         <div class="container">
-          <div class="card" v-if="daily">
+          <div class="card" v-for="(meal, index) in meals" :key="index">
             <h2>
-              Daily, {{ daily.data?.pageProps?.recipe?.prices[0].amount }} CHF
+              {{ meal.name }},
+              {{ meal.data?.pageProps?.recipe?.prices[0].amount }} CHF
             </h2>
 
             <p>
-              Vegetarian: {{ daily.data?.pageProps?.recipe?.isVegetarian }}
+              Vegetarian: {{ meal.data?.pageProps?.recipe?.isVegetarian }}
               <br />
-              Vegan: {{ daily.data?.pageProps?.recipe?.isVegan }}
+              Vegan: {{ meal.data?.pageProps?.recipe?.isVegan }}
             </p>
             <img
-              :src="daily.data?.pageProps?.recipe?.imageUrl"
+              :src="meal.data?.pageProps?.recipe?.imageUrl"
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <h3>{{ daily.data?.pageProps?.recipe?.title }}</h3>
-          </div>
-
-          <div class="card" v-if="simplyGood">
-            <h2>
-              Simply Good,
-              {{ simplyGood.data?.pageProps?.recipe?.prices[0].amount }} CHF
-            </h2>
-            <p>
-              Vegetarian: {{ simplyGood.data?.pageProps?.recipe?.isVegetarian }}
-              <br />
-              Vegan: {{ simplyGood.data?.pageProps?.recipe?.isVegan }}
-            </p>
-            <img
-              :src="simplyGood.data?.pageProps?.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
-              class="image"
-            />
-            <h3>{{ simplyGood.data?.pageProps?.recipe?.title }}</h3>
-          </div>
-
-          <div class="card" v-if="exquisit">
-            <h2>
-              Exquisit,
-              {{ exquisit.data?.pageProps?.recipe?.prices[0].amount }} CHF
-            </h2>
-
-            <p>
-              Vegetarian: {{ exquisit.data?.pageProps?.recipe?.isVegetarian }}
-              <br />
-              Vegan: {{ exquisit.data?.pageProps?.recipe?.isVegan }}
-            </p>
-            <img
-              :src="exquisit.data?.pageProps?.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
-              class="image"
-            />
-            <h3>{{ exquisit.data?.pageProps?.recipe?.title }}</h3>
+            <h3>{{ meal.data?.pageProps?.recipe?.title }}</h3>
           </div>
         </div>
 
         <h1 class="title">Chez</h1>
         <div class="container">
-          <div class="card" v-if="toni1">
+          <div class="card" v-for="(meal, index) in chezMeals" :key="index">
             <h2>
-              Toni 1, {{ toni1.data?.pageProps?.recipe?.prices[0].amount }} CHF
+              {{ meal.name }},
+              {{ meal.data?.pageProps?.recipe?.prices[0].amount }} CHF
             </h2>
+
             <p>
-              Vegetarian: {{ toni1.data?.pageProps?.recipe?.isVegetarian }}
+              Vegetarian: {{ meal.data?.pageProps?.recipe?.isVegetarian }}
               <br />
-              Vegan: {{ toni1.data?.pageProps?.recipe?.isVegan }}
+              Vegan: {{ meal.data?.pageProps?.recipe?.isVegan }}
             </p>
             <img
-              :src="toni1.data?.pageProps?.recipe?.imageUrl"
+              :src="meal.data?.pageProps?.recipe?.imageUrl"
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <h3>{{ toni1.data?.pageProps?.recipe?.title }}</h3>
-          </div>
-          <div class="card" v-if="toni2">
-            <h2>
-              Toni 2, {{ toni2.data?.pageProps?.recipe?.prices[0].amount }} CHF
-            </h2>
-            <p>
-              Vegetarian: {{ toni2.data?.pageProps?.recipe?.isVegetarian }}
-              <br />
-              Vegan: {{ toni2.data?.pageProps?.recipe?.isVegan }}
-            </p>
-            <img
-              :src="toni2.data?.pageProps?.recipe?.imageUrl"
-              alt="Git leider keis bildli ;)"
-              class="image"
-            />
-            <h3>{{ toni2.data?.pageProps?.recipe?.title }}</h3>
+            <h3>{{ meal.data?.pageProps?.recipe?.title }}</h3>
           </div>
         </div>
       </div>
@@ -115,42 +65,48 @@
 const date = new Date();
 const dateFormat = date.toISOString().split("T")[0];
 
-let simplyGood = ref(null);
-let daily = ref(null);
-let exquisit = ref(null);
-
 let isWeekend = ref(date.getDay() === 0 || date.getDay() === 6);
 let weekDay = ref(date.getDay());
 let weekDayName = ref(date.toLocaleDateString("de-CH", { weekday: "long" }));
-// let isWeekend = ref(false);
 
-// let dateFormat = "2024-04-19";
+let meals = ref([
+  { name: "Daily", data: null },
+  { name: "Simply Good", data: null },
+  { name: "Exquisit", data: null },
+]);
 
-let toni1 = ref(null);
-let toni2 = ref(null);
-
-simplyGood.value = await useFetch(
-  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-simply-good.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-simply-good`
-);
-
-daily.value = await useFetch(
-  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-daily.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-daily`
-);
-
-exquisit.value = await useFetch(
-  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-exquisit.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-exquisit`
-);
-
-toni1.value = await useFetch(
-  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-1.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-1`
-);
-toni2.value = await useFetch(
-  `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-2.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-2`
-);
+let chezMeals = ref([
+  { name: "Toni 1", data: null },
+  { name: "Toni 2", data: null },
+]);
 
 let randomWoof = ref(null);
 
-randomWoof.value = await useFetch(" https://random.dog/woof.json");
+async function fetchMeals() {
+  meals.value[0].data = await useFetch(
+    `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-daily.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-daily`
+  );
+
+  meals.value[1].data = await useFetch(
+    `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-simply-good.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-simply-good`
+  );
+
+  meals.value[2].data = await useFetch(
+    `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/mensa/food-profile/${dateFormat}-mittagsverpflegung-exquisit.json?locationSlug=toni-areal&kitchenSlug=mensa&slug=${dateFormat}-mittagsverpflegung-exquisit`
+  );
+
+  chezMeals.value[0].data = await useFetch(
+    `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-1.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-1`
+  );
+
+  chezMeals.value[1].data = await useFetch(
+    `https://app.food2050.ch/_next/data/EP5SGBYLSzqC8kcQS94Ha/de/toni-areal/chez-toni/food-profile/${dateFormat}-mittagsverpflegung-toni-2.json?locationSlug=toni-areal&kitchenSlug=chez-toni&slug=${dateFormat}-mittagsverpflegung-toni-2`
+  );
+
+  randomWoof.value = await useFetch(" https://random.dog/woof.json");
+}
+
+fetchMeals();
 </script>
 
 <style lang="scss" scoped>
