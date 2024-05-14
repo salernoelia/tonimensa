@@ -7,57 +7,57 @@
         <div class="container">
           <div class="card" v-if="daily">
             <h2>
-              Daily, {{ daily.data?.pageProps.recipe?.prices[0].amount }} CHF
+              Daily, {{ daily.data?.pageProps?.recipe?.prices[0].amount }} CHF
             </h2>
 
             <p>
-              Vegetarian: {{ daily.data?.pageProps.recipe?.isVegetarian }}
+              Vegetarian: {{ daily.data?.pageProps?.recipe?.isVegetarian }}
               <br />
-              Vegan: {{ daily.data?.pageProps.recipe?.isVegan }}
+              Vegan: {{ daily.data?.pageProps?.recipe?.isVegan }}
             </p>
             <img
-              :src="daily.data?.pageProps.recipe?.imageUrl"
+              :src="daily.data?.pageProps?.recipe?.imageUrl"
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <h3>{{ daily.data?.pageProps.recipe?.title }}</h3>
+            <h3>{{ daily.data?.pageProps?.recipe?.title }}</h3>
           </div>
 
           <div class="card" v-if="simplyGood">
             <h2>
               Simply Good,
-              {{ simplyGood.data?.pageProps.recipe?.prices[0].amount }} CHF
+              {{ simplyGood.data?.pageProps?.recipe?.prices[0].amount }} CHF
             </h2>
             <p>
-              Vegetarian: {{ simplyGood.data?.pageProps.recipe?.isVegetarian }}
+              Vegetarian: {{ simplyGood.data?.pageProps?.recipe?.isVegetarian }}
               <br />
-              Vegan: {{ simplyGood.data?.pageProps.recipe?.isVegan }}
+              Vegan: {{ simplyGood.data?.pageProps?.recipe?.isVegan }}
             </p>
             <img
-              :src="simplyGood.data?.pageProps.recipe?.imageUrl"
+              :src="simplyGood.data?.pageProps?.recipe?.imageUrl"
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <h3>{{ simplyGood.data?.pageProps.recipe?.title }}</h3>
+            <h3>{{ simplyGood.data?.pageProps?.recipe?.title }}</h3>
           </div>
 
           <div class="card" v-if="exquisit">
             <h2>
               Exquisit,
-              {{ exquisit.data?.pageProps.recipe?.prices[0].amount }} CHF
+              {{ exquisit.data?.pageProps?.recipe?.prices[0].amount }} CHF
             </h2>
 
             <p>
-              Vegetarian: {{ exquisit.data?.pageProps.recipe?.isVegetarian }}
+              Vegetarian: {{ exquisit.data?.pageProps?.recipe?.isVegetarian }}
               <br />
-              Vegan: {{ exquisit.data?.pageProps.recipe?.isVegan }}
+              Vegan: {{ exquisit.data?.pageProps?.recipe?.isVegan }}
             </p>
             <img
-              :src="exquisit.data?.pageProps.recipe?.imageUrl"
+              :src="exquisit.data?.pageProps?.recipe?.imageUrl"
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <h3>{{ exquisit.data?.pageProps.recipe?.title }}</h3>
+            <h3>{{ exquisit.data?.pageProps?.recipe?.title }}</h3>
           </div>
         </div>
 
@@ -65,35 +65,35 @@
         <div class="container">
           <div class="card" v-if="toni1">
             <h2>
-              Toni 1, {{ toni1.data?.pageProps.recipe?.prices[0].amount }} CHF
+              Toni 1, {{ toni1.data?.pageProps?.recipe?.prices[0].amount }} CHF
             </h2>
             <p>
-              Vegetarian: {{ toni1.data?.pageProps.recipe?.isVegetarian }}
+              Vegetarian: {{ toni1.data?.pageProps?.recipe?.isVegetarian }}
               <br />
-              Vegan: {{ toni1.data?.pageProps.recipe?.isVegan }}
+              Vegan: {{ toni1.data?.pageProps?.recipe?.isVegan }}
             </p>
             <img
-              :src="toni1.data?.pageProps.recipe?.imageUrl"
+              :src="toni1.data?.pageProps?.recipe?.imageUrl"
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <h3>{{ toni1.data?.pageProps.recipe?.title }}</h3>
+            <h3>{{ toni1.data?.pageProps?.recipe?.title }}</h3>
           </div>
           <div class="card" v-if="toni2">
             <h2>
-              Toni 2, {{ toni2.data?.pageProps.recipe?.prices[0].amount }} CHF
+              Toni 2, {{ toni2.data?.pageProps?.recipe?.prices[0].amount }} CHF
             </h2>
             <p>
-              Vegetarian: {{ toni2.data?.pageProps.recipe?.isVegetarian }}
+              Vegetarian: {{ toni2.data?.pageProps?.recipe?.isVegetarian }}
               <br />
-              Vegan: {{ toni2.data?.pageProps.recipe?.isVegan }}
+              Vegan: {{ toni2.data?.pageProps?.recipe?.isVegan }}
             </p>
             <img
-              :src="toni2.data?.pageProps.recipe?.imageUrl"
+              :src="toni2.data?.pageProps?.recipe?.imageUrl"
               alt="Git leider keis bildli ;)"
               class="image"
             />
-            <h3>{{ toni2.data?.pageProps.recipe?.title }}</h3>
+            <h3>{{ toni2.data?.pageProps?.recipe?.title }}</h3>
           </div>
         </div>
       </div>
